@@ -24,6 +24,7 @@ connection.connect(function (err) {
   start();
 });
 
+// The start function prompt the user with the options 
 function start() {
   const options = [
     "View all employees",
@@ -42,6 +43,9 @@ function start() {
       choices: options,
       name: "choice"
     }
+
+  // Depending on the user choice, it will responde with a function 
+  // until the option "exit" is selected that the connection ends 
   ]).then(response => {
     if (response.choice == options[0]) {
       allEmployees();
@@ -63,6 +67,7 @@ function start() {
   });
 };
 
+// A function that gets all employees
 function allEmployees() {
   connection.query("SELECT * FROM EMPLOYEE_TRACKER.employee;", function (error, result) {
     if (error) {
@@ -73,6 +78,7 @@ function allEmployees() {
   });
 }
 
+// A function that gets all employees by role
 function employeesByRole() {
   connection.query("SELECT employee.first_name,employee.last_name,role.title FROM employee INNER JOIN role ON role.id=employee.role_id;",
     function (error, result) {
@@ -84,6 +90,7 @@ function employeesByRole() {
     });
 }
 
+// A function that gets all employees by manager
 function employeesByManager() {
   connection.query("SELECT * FROM employee WHERE manager_id=1", function (error, result) {
     if (error, result) {
@@ -94,6 +101,7 @@ function employeesByManager() {
   });
 }
 
+// A function that adds a department
 function addDepartment() {
   inquirer.prompt([
     {
@@ -123,6 +131,7 @@ function addDepartment() {
   });
 }
 
+// A function that adds a role
 function addRole() {
   inquirer.prompt([
     {
@@ -176,6 +185,7 @@ function addRole() {
   });
 }
 
+// A function that adds an employee
 function addEmployee() {
   const roles = [1, 2, 3, 4];
   inquirer.prompt([
@@ -224,6 +234,7 @@ function addEmployee() {
   });
 }
 
+// A function that updates the employees
 function updateEmployee() {
   let updateChoices = [
     "First name",
