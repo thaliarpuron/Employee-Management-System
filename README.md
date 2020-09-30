@@ -21,8 +21,6 @@
   Run the application (node index.js) It will prompt the user with options to view, add or update departments, roles or employees. To end the application select "Exit"
   ## Contributing
   Thalia Rodriguez
-  ## Tests
-  undefined
   ## Support
   Please [open an issue](https://github.com/thaliarpuron/Employee-Management-System/issues/new) for support.
   ### Contact
